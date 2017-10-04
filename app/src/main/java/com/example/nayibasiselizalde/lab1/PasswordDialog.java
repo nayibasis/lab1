@@ -52,4 +52,6 @@ public class PasswordDialog extends DialogFragment {
 
         return builder.create();
     }
+
+    //TODO: do Lab 2
 }
