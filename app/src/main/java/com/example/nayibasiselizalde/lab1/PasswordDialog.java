@@ -42,10 +42,10 @@ public class PasswordDialog extends DialogFragment {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(retype.getText().toString().equals(MainActivity.pass.toString())) {
+                if(retype.getText().toString().equals(SignUp.pass.toString())) {
                     dismiss();
-                    MainActivity.save.setEnabled(true);
-                    MainActivity.check = 1;
+                    SignUp.save.setEnabled(true);
+                    SignUp.check = 1;
                 }
             }
         });
@@ -53,5 +53,4 @@ public class PasswordDialog extends DialogFragment {
         return builder.create();
     }
 
-    //TODO: do Lab 2
 }

@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Catch</string>
-    <string name="handle">Your character name:</string>
-    <string name="name">Full name (private, not listed):</string>
-    <string name="password">Choose a password:</string>
+    <string name="handle">Username</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
     <string name="picture">Share your picture (optional):</string>
     <string name="back_button">I already have an account</string>
     <string name="handle_text"></string>
@@ -14,5 +14,13 @@
     <string name="clear">Clear</string>
     <string name="confirm">Re-type your password</string>
     <string name="confirm_button">Confirm</string>
+    <string name="name_signin">Name</string>
+    <string name="pass_signin">Password</string>
+    <string name="signin_button">Sign In</string>
+    <string name="create">Create a new account</string>
+    <string name="clear_text">Clear</string>
+    <string name="title">Catching</string>
+
+    <string name="ui_love_picture">Love picture</string>
 
 </resources>
