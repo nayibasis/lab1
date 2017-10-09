@@ -27,8 +27,10 @@ public class SignIn extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_in_page);
+        
         ctx = this;
         clear = findViewById(R.id.textView5);
         create = findViewById(R.id.textView4);
