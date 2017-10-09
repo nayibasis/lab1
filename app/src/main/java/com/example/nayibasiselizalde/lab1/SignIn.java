@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,15 +24,14 @@ public class SignIn extends Activity {
     public Button signInButton;
     public EditText name;
     public EditText pass;
-    Activity ctx;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_in_page);
-        
-        ctx = this;
+
         clear = findViewById(R.id.textView5);
         create = findViewById(R.id.textView4);
         signInButton = findViewById(R.id.signin_button);
@@ -58,11 +58,13 @@ public class SignIn extends Activity {
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-//                Intent intent = new Intent(this, SignUp.class);
-//                startActivity(intent);
+                //finish();
+                Intent intent = new Intent(SignIn.this, SignUp.class);
+                startActivity(intent);
             }
         });
+
+        pass.setTransformationMethod(new PasswordTransformationMethod());
 
     }
 }

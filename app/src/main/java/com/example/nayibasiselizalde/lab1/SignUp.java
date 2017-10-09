@@ -72,6 +72,15 @@ public class SignUp extends Activity {
             }
         });
 
+        // Go to sign in if they already have an account
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignUp.this, SignIn.class);
+                startActivity(intent);
+            }
+        });
+
         // When user wants to take a picture
         imagebutton.setOnClickListener(new View.OnClickListener() {
             @Override

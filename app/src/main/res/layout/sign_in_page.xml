@@ -17,7 +17,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/name_signin"
+        android:hint="@string/name_signin"
         app:layout_constraintBottom_toTopOf="@+id/pass_signin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -34,7 +34,7 @@
         android:layout_marginStart="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/pass_signin"
+        android:hint="@string/pass_signin"
         app:layout_constraintBottom_toTopOf="@+id/signin_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -63,6 +63,7 @@
         android:text="@string/create"
         android:textSize="17sp"
         android:clickable="true"
+        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -77,6 +78,7 @@
         android:text="@string/clear_text"
         android:textSize="20sp"
         android:clickable="true"
+        android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
