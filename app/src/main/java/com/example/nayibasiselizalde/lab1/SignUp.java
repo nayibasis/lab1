@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,7 +15,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 /**
  * Created by nayibasiselizalde on 10/4/17.
@@ -37,6 +47,10 @@ public class SignUp extends Activity {
     public EditText name;
     public EditText password;
 
+    private Handler dl;
+    private String req;
+    private Activity ctx;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
 
@@ -52,6 +66,11 @@ public class SignUp extends Activity {
         name = findViewById(R.id.editText2);
         password = findViewById(R.id.editText3);
         imagebutton = findViewById(R.id.image_button);
+
+        dl = new Handler();
+        //req = buildJSONRequest();
+        ctx = this;
+
         // show image if there is a bitmap
         if(bitmap != null)imagebutton.setImageBitmap(bitmap);
 
@@ -192,8 +211,70 @@ public class SignUp extends Activity {
             }
         });
     }
+/**
+    public void doGet(View v){
 
+        EditText et = findViewById(R.id.editText);
+        req = et.getText().toString();
 
+        new Thread(new Runnable() {
+
+            String res = null; // closed over by the post()-ed run().
+
+            @Override
+            public void run() {
+                try {
+                    URL url = new URL("http://cs65.cs.dartmouth.edu/profile.pl?" + req);
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+                    // For info on configurable headers of HTTP:
+                    // https://developer.android.com/reference/java/net/HttpURLConnection.html
+
+                    try {
+                        // conn.setDoOutput(true);  this is a GET, they don't have a body
+                        conn.setRequestMethod("GET");
+
+                        // we want to see strings going back and forth, don't compress them
+                        conn.setRequestProperty("Accept-Encoding", "identity");
+
+                        InputStream in = new BufferedInputStream(conn.getInputStream());
+                        res = readStream(in);
+                    } finally {
+                        conn.disconnect();
+                    }
+                }
+                catch( Exception e){
+                    Log.d("THREAD", e.toString());
+                }
+
+                Log.d("NET GET", res);
+                postResultsToUI(res);
+            }
+        }).start();
+    }
+
+    private String readStream(InputStream in) throws IOException, IOException {
+        BufferedReader r = new BufferedReader(new InputStreamReader(in));
+        StringBuilder total = new StringBuilder();
+        String line;
+        while ((line = r.readLine()) != null) {
+            total.append(line).append('\n');
+        }
+        return total.toString();
+    }
+
+    private void postResultsToUI(final String res){
+        dl.post(new Runnable() {
+            @Override
+            public void run() {
+                TextView tv = ctx.findViewById(R.id.txt);
+                if( res == null )
+                    tv.setText("Connection failed");
+                else
+                    tv.setText(res);
+            }
+        });
+    }**/
 
     // Saved the users information by getting the text from each field.
     public void onSaveClickedSP(View view){
