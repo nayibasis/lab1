@@ -22,6 +22,14 @@
     <string name="clear_text">Clear</string>
     <string name="title">Catching</string>
     <string name="ui_love_picture">Love picture</string>
+    <string name="sign_out">Sign out</string>
+    <string name="privacy">Privacy</string>
+    <string name="alert_setter">Alert</string>
+    <string name="about">About</string>
+    <string name="cancel">Cancel</string>
+    <string name="signout_button">Signout</string>
+    <string name="logout_warning">Are you sure?</string>
+    <string name="link_class">http://www.cs.dartmouth.edu/~sergey/cs65/</string>
     <string-array name="Alert">
         <item>Vibrate</item>
         <item>Ring</item>

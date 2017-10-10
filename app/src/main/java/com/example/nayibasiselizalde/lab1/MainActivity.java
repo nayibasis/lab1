@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity{
     private ArrayList<Fragment> fragments;
     private TabViewPagerAdapter mViewPagerAdapter;
 
-
+    private boolean launchLogin = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -68,7 +68,10 @@ public class MainActivity extends AppCompatActivity{
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-
+        Intent intent = getIntent();
+        if (intent.getStringExtra("from") != null && intent.getStringExtra("from").equals("login")) {
+            launchLogin = false;
+        }
         /**
         slidingTabLayout = (SlidingTabLayout) findViewById(R.id.tab);
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -133,8 +136,10 @@ public class MainActivity extends AppCompatActivity{
     @Override
     public void onStart() {
         super.onStart();
-        Intent intent = new Intent(this, SignIn.class);
-        startActivity(intent);
+        if(launchLogin) {
+            Intent intent = new Intent(this, SignIn.class);
+            startActivity(intent);
+        }
     }
 
 

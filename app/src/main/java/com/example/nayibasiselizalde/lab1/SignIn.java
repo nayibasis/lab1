@@ -51,14 +51,18 @@ public class SignIn extends Activity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(SignIn.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("from","login");
+                startActivity(intent);
+                finish();
             }
         });
 
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //finish();
+                finish();
                 Intent intent = new Intent(SignIn.this, SignUp.class);
                 startActivity(intent);
             }

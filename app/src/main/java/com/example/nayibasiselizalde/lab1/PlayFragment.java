@@ -23,16 +23,6 @@ public class PlayFragment extends Fragment{
                          savedInstanceState){
         View view = inflater.inflate(R.layout.play_layout, container, false);
 
-        test = view.findViewById(R.id.test_button);
-
-        /*test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent
-                startActivity(intent);
-            }
-        });*/
-
         return view;
     }
 

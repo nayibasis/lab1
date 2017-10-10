@@ -69,6 +69,9 @@ public class SignUp extends Activity {
                 clear.setVisibility(View.INVISIBLE);
                 back.setVisibility(View.VISIBLE);
 
+                check = 0;
+                save.setEnabled(false);
+
             }
         });
 
@@ -76,6 +79,7 @@ public class SignUp extends Activity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
                 Intent intent = new Intent(SignUp.this, SignIn.class);
                 startActivity(intent);
             }
@@ -120,8 +124,10 @@ public class SignUp extends Activity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                clear.setVisibility(View.VISIBLE);
-                back.setVisibility(View.INVISIBLE);
+                if(handle.getText().toString() != "") {
+                    clear.setVisibility(View.VISIBLE);
+                    back.setVisibility(View.INVISIBLE);
+                }
             }
 
             @Override
@@ -157,6 +163,8 @@ public class SignUp extends Activity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 clear.setVisibility(View.VISIBLE);
                 back.setVisibility(View.INVISIBLE);
+                save.setEnabled(false);
+                check = 0;
             }
 
             @Override

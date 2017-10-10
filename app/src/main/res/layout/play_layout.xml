@@ -14,13 +14,4 @@
         android:textSize="40sp"
         android:id="@+id/test_text" />
 
-    <Button
-        android:id="@+id/test_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="217dp"
-        android:text="@string/signin_button" />
-
 </RelativeLayout>
